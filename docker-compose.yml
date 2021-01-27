@@ -1,0 +1,18 @@
+# from https://github.com/gael-thomas/docker-compose-with-postgresql
+version: "3"
+
+services:
+  db:
+    # Official PostgreSQL image from DockerHub (we  use the last version)
+    image: "postgres:latest"
+
+    ports:
+      - 5433:5432
+
+    environment:
+      - POSTGRES_USER=postgres # The PostgreSQL user (useful to connect to the database)
+      - POSTGRES_PASSWORD=postgres # The PostgreSQL password (useful to connect to the database)
+      - POSTGRES_DB=postgres # The PostgreSQL default database (automatically created at first launch)
+
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/

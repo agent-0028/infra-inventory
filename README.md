@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Daily Operations
 
-Things you may want to cover:
+### Run the database
 
-* Ruby version
+```
+# first time
+docker-compose up -d
+# stop for the day
+docker-compose stop
+# live to code another day
+docker-compose start
+```
 
-* System dependencies
+## Dev Notes
+### 1/26/2021
 
-* Configuration
+Mostly following instructions from here: https://devcenter.heroku.com/articles/getting-started-with-rails6
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Set up a simple docker-compose for local dev and configured database.yml to match the user/pass in that file before trying to have Rails create a db.
