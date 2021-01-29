@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: OHG Shared
+  description: Darrel shared hosting server
+  hostname: ohg.com
+  os: CentOS
+
+two:
+  name: morpheus
+  description: One of my two Docker servers
+  hostname: morpheus.tinisi.com
+  os: Ubuntu
+
+three:
+  name: trinity
+  description: One of my two Docker servers
+  hostname: trinity.tinisi.com
+  os: Ubuntu
