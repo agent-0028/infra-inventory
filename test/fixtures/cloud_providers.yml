@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+google:
+  name: Google Personal
+  description: Personal account for YouTube and band things
+  credential: tinisi_google
+
+amazon:
+  name: Amazon Personal
+  description: MyString
+  credential: jgrosz_amazon

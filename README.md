@@ -14,6 +14,24 @@ docker-compose start
 ```
 
 ## Dev Notes
+
+### 2/3/2021
+
+These are the generator commands I am using for models and migrations:
+
+```
+rails g model DomainName name registrar
+
+rails g model Credential description
+
+rails g model FullyQualifiedDomainName hostname domain_name:references
+
+rails g model Server hostname description fully_qualified_domain_name:references credential:references
+
+rails g model DnsRecord description dns_server servers:references fully_qualified_domain_name:references
+
+rails g model CloudProvider name description credential:references
+```
 ### 1/26/2021
 
 Mostly following instructions from here: https://devcenter.heroku.com/articles/getting-started-with-rails6
