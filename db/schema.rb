@@ -10,16 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_042234) do
+ActiveRecord::Schema.define(version: 2021_02_03_231557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "resources", force: :cascade do |t|
+  create_table "cloud_providers", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.bigint "credential_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["credential_id"], name: "index_cloud_providers_on_credential_id"
+  end
+
+  create_table "credentials", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "dns_records", force: :cascade do |t|
+    t.string "description"
+    t.string "dns_server"
+    t.bigint "servers_id", null: false
+    t.bigint "fully_qualified_domain_name_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fully_qualified_domain_name_id"], name: "index_dns_records_on_fully_qualified_domain_name_id"
+    t.index ["servers_id"], name: "index_dns_records_on_servers_id"
+  end
+
+  create_table "domain_names", force: :cascade do |t|
+    t.string "name"
+    t.string "registrar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fully_qualified_domain_names", force: :cascade do |t|
+    t.string "hostname"
+    t.bigint "domain_name_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["domain_name_id"], name: "index_fully_qualified_domain_names_on_domain_name_id"
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "hostname"
+    t.string "description"
+    t.bigint "fully_qualified_domain_name_id", null: false
+    t.bigint "credential_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["credential_id"], name: "index_servers_on_credential_id"
+    t.index ["fully_qualified_domain_name_id"], name: "index_servers_on_fully_qualified_domain_name_id"
+  end
+
+  add_foreign_key "cloud_providers", "credentials"
+  add_foreign_key "dns_records", "fully_qualified_domain_names"
+  add_foreign_key "dns_records", "servers", column: "servers_id"
+  add_foreign_key "fully_qualified_domain_names", "domain_names"
+  add_foreign_key "servers", "credentials"
+  add_foreign_key "servers", "fully_qualified_domain_names"
 end

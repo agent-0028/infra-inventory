@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+nexus:
+  hostname: nexus.tinisi.com
+  description: My main persistent VM, for IceCast and whatever else
+  fully_qualified_domain_name: nexus
+  credential: tinisi_ohg
+
+ohg:
+  hostname: server1.onholyground.com
+  description: Darrell shared hosting server
+  fully_qualified_domain_name: ohg
+  credential: tinisiwww_ohg

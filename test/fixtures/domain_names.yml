@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sprout:
+  name: sproutlandscapedesign.com
+  registrar: AWS
+
+bassett:
+  name: srbassett.com
+  registrar: Go Daddy
+
+tinisi:
+  name: tinisi.com
+  registrar: AWS
+
+ohg:
+  name: onholyground.com
+  registrar: Amazon

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   description: MyString
+#   dns_server: MyString
+#   servers: one
+#   fully_qualified_domain_name: one
+
+# two:
+#   description: MyString
+#   dns_server: MyString
+#   servers: two
+#   fully_qualified_domain_name: two
