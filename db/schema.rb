@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2021_02_03_231557) do
   create_table "dns_records", force: :cascade do |t|
     t.string "description"
     t.string "dns_server"
-    t.bigint "servers_id", null: false
+    t.bigint "server_id", null: false
     t.bigint "fully_qualified_domain_name_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["fully_qualified_domain_name_id"], name: "index_dns_records_on_fully_qualified_domain_name_id"
-    t.index ["servers_id"], name: "index_dns_records_on_servers_id"
+    t.index ["server_id"], name: "index_dns_records_on_server_id"
   end
 
   create_table "domain_names", force: :cascade do |t|
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_231557) do
 
   add_foreign_key "cloud_providers", "credentials"
   add_foreign_key "dns_records", "fully_qualified_domain_names"
-  add_foreign_key "dns_records", "servers", column: "servers_id"
+  add_foreign_key "dns_records", "servers"
   add_foreign_key "fully_qualified_domain_names", "domain_names"
   add_foreign_key "servers", "credentials"
   add_foreign_key "servers", "fully_qualified_domain_names"

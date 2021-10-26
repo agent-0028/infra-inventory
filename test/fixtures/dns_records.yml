@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   description: MyString
-#   dns_server: MyString
-#   servers: one
-#   fully_qualified_domain_name: one
+one:
+  description: One DNS record
+  dns_server: route63
+  server: nexus
+  fully_qualified_domain_name: nexus
 
-# two:
-#   description: MyString
-#   dns_server: MyString
-#   servers: two
-#   fully_qualified_domain_name: two
+two:
+  description: A second DNS record
+  dns_server: ohg
+  server: ohg
+  fully_qualified_domain_name: ohg

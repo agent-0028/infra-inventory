@@ -13,6 +13,15 @@ docker-compose stop
 docker-compose start
 ```
 
+### Wipe and recreate database
+
+```
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:fixtures:load
+```
+
 ## Dev Notes
 
 Server.all.map{ |s| puts "#{s.hostname}: #{s.description}" }
