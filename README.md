@@ -16,10 +16,10 @@ docker-compose start
 ### Wipe and recreate database
 
 ```
-rails db:drop
-rails db:create
-rails db:migrate
-rails db:fixtures:load
+bin/rails db:drop
+bin/rails db:create
+bin/rails db:migrate
+bin/rails db:fixtures:load
 ```
 
 ## Dev Notes
@@ -29,6 +29,18 @@ Server.all.map{ |s| puts "#{s.hostname}: #{s.description}" }
 Server.all.preload(:credential).map{ |s| puts "#{s.hostname}: #{s.credential.description}" }
 
 FullyQualifiedDomainName.preload(:domain_name).all.map{ |f| puts "#{f.hostname}.#{f.domain_name.name}" }
+
+### 3/8/2024
+
+With now using Ruby 3.3.0, bundle install is having issues with the usual postgres crap.
+
+This appears to work.
+
+I do not know how to pass that argument from Gemfile.
+
+```
+gem install pg -- --with-pg-config=/opt/homebrew/opt/libpq/bin/pg_config
+```
 
 ### 2/3/2021
 
