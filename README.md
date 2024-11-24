@@ -50,7 +50,34 @@ CloudProvider.all.map { |c| puts "#{c.name} - #{c.description}" }
 Credential.all.map { |c| puts "#{c.description}" }
 ```
 
+### 11/20/2024
 
+Super rapid upgrade from 6.1 => 7.2 went great!
+
+Upgrade from 7.2 => 8.0.0
+
+Got an error running `app:update`:
+
+```
+/Users/tinisi/.rbenv/versions/3.3.0/lib/ruby/3.3.0/bundled_gems.rb:74:in `require': cannot load such file -- active_support/basic_object (LoadError)
+```
+
+Deleted the Gemfile.lock
+
+Re-ran `bundle`
+
+bundle config set --global build.libpg --with-pg-config=/opt/homebrew/opt/libpq/bin/pg_config
+
+That got me past the error!
+
+...and on to a new one.
+
+Running:
+```
+bin/rails app:update   
+```
+
+> Puma 5 is not compatible with Rack 3, please upgrade to Puma 6 or higher
 
 ### 9/12/2024
 
